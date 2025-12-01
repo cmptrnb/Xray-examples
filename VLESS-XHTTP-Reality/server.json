@@ -1,0 +1,57 @@
+{
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 443, 
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "6cd3b55f-afb6-412a-8f1c-d0260c409aa0", 
+                        "flow": ""
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "xhttpSettings": {
+                    "path": "/otjs4zpi",
+                    "extra": {
+                        "xPaddingBytes": "100-200"
+                    }
+                },
+                "security": "reality",
+                "realitySettings": {
+                    "target": "www.amazon.com:443",
+                    "serverNames": [
+                        "www.amazon.com",
+                        "amazon.com"
+                    ],
+                    "privateKey": "EK8TpuV7XJ1DmRdKshL_rWrU5pdqbPOKLpIH8DB72mg", 
+                    "shortIds": [
+                        "01"
+                    ]
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}

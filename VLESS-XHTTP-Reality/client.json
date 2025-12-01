@@ -1,0 +1,68 @@
+{
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "direct"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks"
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "YOUR.SERVER.IP.ADDRESS",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "6cd3b55f-afb6-412a-8f1c-d0260c409aa0",
+                                "encryption": "none",
+                                "flow": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "xhttpSettings": {
+                    "path": "/otjs4zpi",
+                    "extra": {
+                        "xPaddingBytes": "100-200", 
+                        "xmux": { 
+                            "maxConcurrency": "4"
+                        }
+                    }
+                },
+                "security": "reality",
+                "realitySettings": {
+                    "serverName": "www.amazon.com", 
+                    "publicKey": "MlweZhZDkF_fp5-2bcEZmSgPyBTKiyOz97pIrqTvSw0", 
+                    "shortId": "01", 
+                    "spiderX": "/", 
+                    "fingerprint": "chrome" 
+                }
+            },
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
