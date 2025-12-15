@@ -278,13 +278,13 @@ Open a browser and navigate to https://github.com/XTLS/Xray-core/releases.
 
 Download the most recent executable for your client platform, e.g. `Xray-linux-64.zip`.
 
-Unzip the zip file:
+Unzip the zip file.
+
+In a terminal window, change into the unzipped directory. For example:
 
 ```
-unzip Xray-linux-64.zip
+cd Downloads\Xray-linux-64
 ```
-
-Change into the unzipped directory.
 
 
 ## Step 12. Configure client
@@ -305,7 +305,7 @@ Write the Xray client configuration file to disk, and quit the editor.
 Still positioned in the Xray client directory, run the Xray client:
 
 ```
-xray -c config.json
+./xray -c config.json
 ```
 
 Leave the terminal window open with Xray running in it.
@@ -314,6 +314,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
