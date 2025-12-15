@@ -203,13 +203,19 @@ xray uuid
 
 ## Step 8. Configure server
 
+You can use the `server.json` from this repository as your starting point: 
+
+```
+curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-Nginx/server.json -o /usr/local/etc/xray/config.json
+```
+
 Edit the Xray server configuration file:
 
 ```
 vi /usr/local/etc/xray/config.json
 ```
 
-You can use the `server.json` from this repository as your starting point. At a minimum, replace the UUID and the secret path name in the example with your own values.
+At a minimum, replace the UUID and the secret path name in the example with your own values.
 
 Once you've done making changes, write the Xray server configuration file to disk, and quit the editor.
 
@@ -245,13 +251,19 @@ cd Downloads\Xray-linux-64
 
 ## Step 11. Configure client
 
+You can use the `client.json` from this repository as your starting point:
+
+```
+curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-Nginx/client.json -o config.json
+```
+
 Edit the Xray client configuration file:
 
 ```
 vi config.json
 ```
 
-You can use the `client.json` from this repository as your starting point. At a minimum, replace the UUID, the secret path name, and `your.server.hostname` in the example with your own values.
+At a minimum, replace the UUID, the secret path name, and `your.server.hostname` in the example with your own values.
 
 Write the Xray client configuration file to disk, and quit the editor.
 
@@ -281,6 +293,7 @@ Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS
 ## Step 14. Test your connection
 
 Test your connection between client and server by visiting a site such as https://iplocation.io.
+
 
 
 
