@@ -242,11 +242,8 @@ Download the most recent executable for your client platform, e.g. `Xray-linux-6
 
 Unzip the zip file.
 
-In a terminal window, change into the unzipped directory. For example:
+If necessary, change into the directory containing the unzipped contents.
 
-```
-cd Downloads\Xray-linux-64
-```
 
 
 ## Step 11. Configure client
@@ -270,7 +267,7 @@ Write the Xray client configuration file to disk, and quit the editor.
 
 ## Step 12. Run client
 
-Still positioned in the Xray client directory, run the Xray client:
+Still positioned in the directory with the Xray client in it, run Xray with your client configuration:
 
 ```
 ./xray -c config.json
@@ -293,6 +290,7 @@ Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS
 ## Step 14. Test your connection
 
 Test your connection between client and server by visiting a site such as https://iplocation.io.
+
 
 
 
