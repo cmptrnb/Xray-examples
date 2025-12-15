@@ -1,6 +1,6 @@
 # VLESS XHTTP with Nginx in front
 
-In this arrangement, the client talks to Nginx on the server. Nginx handles TLS. If the client has specified the correct secret path, the request is passed on to Xray, which is hidden behind Nginx.
+In this arrangement, the client talks to Nginx on the server. Nginx handles TLS. If the client has specified the correct secret path, the request is passed to Xray.
 
 
 
@@ -248,3 +248,4 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
