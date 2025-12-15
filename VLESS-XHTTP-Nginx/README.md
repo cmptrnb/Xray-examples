@@ -214,7 +214,7 @@ You can use the `server.json` from this repository as your starting point. At a 
 Once you've done making changes, write the Xray server configuration file to disk, and quit the editor.
 
 
-## Step 10. Restart Xray on server
+## Step 9. Restart Xray on server
 
 ```
 systemctl restart xray
@@ -228,7 +228,7 @@ End your SSH session with the server:
 exit
 ```
 
-## Step 11. Download client
+## Step 10. Download client
 
 Open a browser and navigate to https://github.com/XTLS/Xray-core/releases.
 
@@ -243,7 +243,7 @@ cd Downloads\Xray-linux-64
 ```
 
 
-## Step 12. Configure client
+## Step 11. Configure client
 
 Edit the Xray client configuration file:
 
@@ -256,7 +256,7 @@ You can use the `client.json` from this repository as your starting point. At a 
 Write the Xray client configuration file to disk, and quit the editor.
 
 
-## Step 13. Run client
+## Step 12. Run client
 
 Still positioned in the Xray client directory, run the Xray client:
 
@@ -273,9 +273,15 @@ xray.exe -c config.json
 Leave the terminal window open with Xray running in it.
 
 
-## Step 14. Configure Firefox
+## Step 13. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
+
+## Step 14. Test your connection
+
+Test your connection between client and server by visiting a site such as https://iplocation.io.
+
 
 
 
