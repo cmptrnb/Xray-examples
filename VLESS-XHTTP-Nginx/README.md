@@ -120,7 +120,13 @@ Invoke certbot for an Nginx server:
 certbot --nginx
 ```
 
-Set everything up for periodic renewal of your SSL certificate and key:
+You will be prompted to:
+
+* Enter your email address, or leave it blank
+* Agree to the terms of service
+* Select your hostname by number, or press Enter to select all 
+
+Once the SSL certificate is issued and installed, set everything up for periodic renewal of your SSL certificate and key:
 
 ```
 certbot renew --dry-run
@@ -260,6 +266,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
