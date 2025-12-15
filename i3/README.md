@@ -101,3 +101,15 @@ Press the Windows key plus Enter to open a terminal emulator window.
 Press the Windows key plus D to bring up dmenu, then select Firefox to open a new Firefox window.
 
 You can now go ahead and customize i3 to your liking.
+
+## Copy and paste
+
+To copy and paste from Firefox to URxvt:
+
+* In Firefox, just highlight text to copy it to the clipboard
+* In URxvt, do Shift + Insert to paste from the clipboard
+
+To copy and paste from URxvy to Firefox:
+
+* In URxvt, select text and do Ctrl + Alt + c to copy it to the clipboard
+* In Firefox, do Ctrl + v to paste from the clipboard
