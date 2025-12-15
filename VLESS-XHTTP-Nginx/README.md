@@ -38,12 +38,30 @@ Specify your server's domain name:
 
 ```
         server_name your.server.hostname;
+```
 
+At this stage, your configuration file should look something like this:
+
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name your.server.hostname;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
 ```
 
 Write the file to disk, and quit the editor.
 
-Restart Nginx with a site configuration that specifies your server name:
+Restart Nginx with the site configuration file that now specifies your server name:
 
 ```
 systemctl restart nginx
@@ -250,5 +268,6 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
