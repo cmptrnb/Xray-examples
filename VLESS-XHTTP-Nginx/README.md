@@ -308,12 +308,19 @@ Still positioned in the Xray client directory, run the Xray client:
 ./xray -c config.json
 ```
 
+On Windows, the command would be:
+
+```
+xray.exe -c config.json
+```
+
 Leave the terminal window open with Xray running in it.
 
 
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
