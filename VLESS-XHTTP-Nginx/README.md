@@ -295,7 +295,7 @@ Edit the Xray client configuration file:
 vi config.json
 ```
 
-You can use the `client.json` from this repository as your starting point. At a minimum, replace the UUID, the secret path name, and your.server.hostname in the example with your own values.
+You can use the `client.json` from this repository as your starting point. At a minimum, replace the UUID, the secret path name, and `your.server.hostname` in the example with your own values.
 
 Write the Xray client configuration file to disk, and quit the editor.
 
@@ -314,6 +314,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
