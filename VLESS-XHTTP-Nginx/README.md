@@ -2,6 +2,8 @@
 
 In this arrangement, the client talks to Nginx on the server. Nginx handles TLS. If the client has specified the correct secret path, the request is passed to Xray.
 
+You must have your own domain name to construct a server with this configuration.
+
 
 
 ## Step 1. Install Nginx
@@ -248,4 +250,5 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
