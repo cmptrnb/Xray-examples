@@ -1,4 +1,4 @@
-# i3
+# Install i3 tiling window manager on command-line Debian
 
 
 ## Step 1. Install software
