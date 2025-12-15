@@ -80,6 +80,10 @@ curl -L https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/archive/refs/head
 Unzip the site content:
 
 ```
+apt install -y unzip
+```
+
+```
 unzip master.zip
 ```
 
@@ -268,6 +272,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
