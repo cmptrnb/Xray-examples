@@ -94,7 +94,11 @@ sudo reboot
 
 ## Step 7. Launch into i3
 
-Enter i3 with your basic configuration. 
+Enter i3 with your basic configuration:
+
+```
+startx
+```
 
 Press the Windows key plus Enter to open a terminal emulator window. 
 
