@@ -113,10 +113,22 @@ To copy and paste from Firefox to URxvt:
 * In Firefox, just highlight text to copy it to the clipboard
 * In URxvt, do Shift + Insert to paste from the clipboard
 
-To allow pasting of multiple lines into URxvt, either create or modify your `~/.inputrc` file to include a line:
+To allow pasting of multiple lines into URxvt, either create or modify your `~/.inputrc` file and include a line:
 
 ```
 set enable-bracketed-paste off
+```
+
+To disable the `confirm-paste` extension, add `,-confirm-paste` to the `perl-ext-common` resource, which tells URxvt to load the defaults minus this specific extension. Add this line to `~/.Xresources`:
+
+```
+URxvt.perl-ext-common: default,-confirm-paste
+```
+
+After editing the file, you must load the changes using the command:
+
+```
+xrdb ~/.Xresources
 ```
 
 To copy and paste from URxvt to Firefox:
