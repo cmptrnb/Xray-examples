@@ -264,6 +264,8 @@ Once you've done making changes, write the Xray server configuration file to dis
 systemctl restart xray
 ```
 
+Xray is now listening on port `1234` for input from localhost (`127.0.0.1`) only.
+
 End your SSH session with the server:
 
 ```
@@ -312,6 +314,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
