@@ -1,0 +1,54 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "udp": true
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "your.server.hostname",
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "0f8f47c3-bfe3-4757-8bcb-3dfcc72c9e9f",
+                                "encryption": "none"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "xhttpSettings": {
+                    "path": "/vtcecvvc",
+                    "extra": {
+                        "xPaddingBytes": "10-100",
+                        "xmux": {
+                            "maxConcurrency": "4"
+                        }
+                    }
+                },
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "your.server.hostname",
+                    "alpn": [
+                        "h2"
+                    ]
+                }
+            },
+            "tag": "proxy"
+        }
+    ]
+}
