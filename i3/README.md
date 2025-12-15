@@ -113,6 +113,12 @@ To copy and paste from Firefox to URxvt:
 * In Firefox, just highlight text to copy it to the clipboard
 * In URxvt, do Shift + Insert to paste from the clipboard
 
+To allow pasting of multiple lines into `URxvt`, either create or modify your `~/.inputrc` file to include a line:
+
+```
+set enable-bracketed-paste off
+```
+
 To copy and paste from URxvt to Firefox:
 
 * In URxvt, select text and do Ctrl + Alt + c to copy it to the clipboard
