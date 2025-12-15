@@ -1,0 +1,44 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 1234,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "0f8f47c3-bfe3-4757-8bcb-3dfcc72c9e9f"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "none",
+                "xhttpSettings": {
+                    "path": "/vtcecvvc",
+                    "extra": {
+                        "xPaddingBytes": "10-100"
+                    }
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ]
+}
