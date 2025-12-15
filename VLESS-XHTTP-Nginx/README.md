@@ -163,14 +163,60 @@ Add HTTP/2 support:
 Add proxy pass to localhost port `1234`, which is where Xray will be listening:
 
 ```
-         location /vtcecvvc {
-                  proxy_pass http://127.0.0.1:1234;
-                  proxy_http_version 1.1;
-                  proxy_redirect off;
+        location /vtcecvvc {
+                proxy_pass http://127.0.0.1:1234;
+                proxy_http_version 1.1;
+                proxy_redirect off;
         }
 ```
 
 Replace the secret path name in the example with your actual secret path name.
+
+At this stage, your Nginx site configuration file will look something like this:
+
+```
+server {
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name your.server.hostname;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/your.server.hostname/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/your.server.hostname/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+        http2 on;
+
+        location /vtcecvvc {
+                proxy_pass http://127.0.0.1:1234;
+                proxy_http_version 1.1;
+                proxy_redirect off;
+        }
+
+}
+server {
+    if ($host = your.server.hostname) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name your.server.hostname;
+    return 404; # managed by Certbot
+
+}
+```
 
 Write the Nginx site configuration file to disk, and quit the editor.
 
@@ -266,6 +312,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
