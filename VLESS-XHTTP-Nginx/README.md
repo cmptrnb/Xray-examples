@@ -99,19 +99,7 @@ cp -r WebGL-Fluid-Simulation-master/* /var/www/html/
 Install snap:
 
 ```
-apt install snapd
-```
-
-```
-snap install snapd
-```
-
-```
-snap install hello-world
-```
-
-```
-hello-world
+apt install -y snapd
 ```
 
 Install the EFF certbot script:
@@ -272,6 +260,7 @@ Leave the terminal window open with Xray running in it.
 ## Step 14. Configure Firefox
 
 Configure Firefox (Settings &gt; General &gt; Network Settings) to use the SOCKS5 proxy server on `127.0.0.1` port `10808`.
+
 
 
 
