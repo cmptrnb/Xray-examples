@@ -75,9 +75,7 @@ You now have Xray listening on port `tcp/443`, and WireGuard listening on localh
 
 ## Step 2. Configure VPS 1
 
-
 Install Xray from https://github.com/XTLS/Xray-install:
-
 
 ```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u root
@@ -91,14 +89,13 @@ curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/
 
 Note that the Xray client accepts `dokodemo-door` input on port `udp/51820`.
 
-
 Edit the Xray relay configuration file:
 
 ```
 vi /usr/local/etc/xray/config.json
 ```
 
-At a minimum, replace the UUID and the public key in the example with your own values.
+At a minimum, replace the UUID, the public key, and the IP address of VPS 2 in the example with your own values.
 
 Write the file to disk, and quit the editor.
 
@@ -112,7 +109,7 @@ Open port `udp/51820` in this VPS's firewall and/or security groups.
 
 This server is now listening for public input on `udp/51820`, and whatever it gets (`dokodemo-door`) will be sent to the server VPS 2.
 
-## Configure user PC
+## Step 3. Configure user PC
 
 Securely download the generated client configuration file from the final server.
 
@@ -153,7 +150,7 @@ sudo wg show
 ```
 
 
-## End-to-end test
+## Step 4. End-to-end test
 
 Test the connection all the way from the client out to the World Wide Web by visiting a site such as https://iplocation.io.
 
