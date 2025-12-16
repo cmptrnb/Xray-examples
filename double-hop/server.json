@@ -40,7 +40,7 @@
             }
         }
     ],
-    outbounds: [
+    "outbounds": [
         {
             "protocol": "freedom",
             "tag": "direct",
@@ -48,4 +48,5 @@
         }
     ]
 }
+
 
