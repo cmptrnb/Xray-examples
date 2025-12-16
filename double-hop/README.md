@@ -8,7 +8,7 @@ In this scenario:
 
 ## Step 1. Configure VPS 2
 
-Download the WireGuard install script from https://github.com/angristan/wireguard-install:
+Start by downloading the WireGuard install script from https://github.com/angristan/wireguard-install:
 
 ```
 curl -L https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh -O
@@ -26,7 +26,37 @@ Execute the script:
 ./wireguard-install.sh
 ```
 
+Explicitly specify the listening port as `51820/udp`.
+
 Toward the end of the script's run, you will be prompted to specify a client name. We will use `mypc` as our example.
+
+We do not need to open the firewall for WireGuard, since it will be behind Xray. Therefore edit the generated server configuration file:
+
+```
+vi /etc/wireguard/wg0.conf
+```
+
+Delete the firewall opening lines:
+
+```
+PostUp = iptables -I INPUT -p udp --dport 51820 -j ACCEPT
+```
+
+And:
+
+```
+PostDown = iptables -D INPUT -p udp --dport 51820 -j ACCEPT
+```
+
+Write the file to disk, and quit the editor.
+
+The easiest way to implement these changes right now is to reboot:
+
+```
+reboot
+```
+
+After a few moments, SSH back into VPS2.
 
 Install Xray using the script from https://github.com/XTLS/Xray-install:
 
@@ -111,10 +141,16 @@ This server is now listening for public input on `udp/51820`, and whatever it ge
 
 ## Step 3. Configure user PC
 
-Securely download the generated client configuration file from the final server.
+Install WireGuard on the client as per https://www.wireguard.com/install. For example, for a Debian Linux client:
 
 ```
-scp root@VPS2:
+sudo apt install -y wireguard
+```
+
+Securely download the generated client configuration file from VPS2:
+
+```
+scp root@VPS2.SERVER.IP.ADDRESS:/root/wg0-client-mypc.conf .
 ```
 
 Edit the apparent destination to be your relay server (VPS 1) IP address, instead of your final server (VPS 2) IP address:
@@ -125,17 +161,11 @@ Endpoint = VPS1.SERVER.IP.ADDRESS:51820
 
 Write the file to disk, and quit the editor.
 
-If you have not already done so, install WireGuard on the client as per https://www.wireguard.com/install. 
-
-For example, for a Debian Linux client:
+Copy the WireGuard configuration file into place:
 
 ```
-sudo apt install -y wireguard
+cp wg0-client-mypc.conf /etc/wireguard/wg0.conf
 ```
-
-Add a tunnel (i.e., your edited configuration file).
-
-Create a file like `/etc/wireguard/wg0.conf` (replace `wg0` with your interface name).
 
 Connect your client to the relay server (VPS 1), which will in turn connect over Xray to the final server (VPS 2).
 
