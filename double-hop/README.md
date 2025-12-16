@@ -1,5 +1,8 @@
 # How to build a double-hop VPN with WireGuard and Xray VLESS Reality
 
+
+<p style="color:red"><strong>Under development and untested</strong></p>
+
 In this scenario:
 
 * The user connects to VPS 1 with WireGuard
