@@ -91,15 +91,15 @@ For configuring Xray, you can use the `relay.json` from this repository as your 
 curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/double-hop/relay.json -o /usr/local/etc/xray/config.json
 ```
 
-Note that the Xray client accepts `dokodemo-door` input on port `udp/51820`.
-
 Edit the Xray relay configuration file:
 
 ```
 vi /usr/local/etc/xray/config.json
 ```
 
-At a minimum, replace the UUID, the public key, and the IP address of VPS 2 in the example with your own values.
+Note that the Xray client accepts `dokodemo-door` input on port `udp/51820`.
+
+At a minimum, replace the UUID, the public key, and the `VPS2.SERVER.IP.ADDRESS` in the example with your own values.
 
 Write the file to disk, and quit the editor.
 
@@ -109,9 +109,9 @@ Restart the Xray systemd service with this configuration file:
 systemctl restart xray
 ```
 
-Open port `udp/51820` in this VPS's firewall and/or security groups.
-
 This server is now listening for public input on `udp/51820`, and whatever it receives (`dokodemo-door` inbound) will be output to the server VPS 2.
+
+Open port `udp/51820` in this VPS's firewall and/or security groups.
 
 Exit your SSH session with VPS 1:
 
