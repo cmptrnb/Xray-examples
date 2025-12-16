@@ -100,7 +100,7 @@ systemctl restart xray
 
 Open port `tcp/443` in the firewall and/or security groups for VPS 2.
 
-You now have Xray listening on port `tcp/443`, and WireGuard listening on localhost port `udp/51820` (which need not be open in this server’s firewall).
+You now have Xray listening on port `tcp/443`, and WireGuard listening on port `udp/51820` (which should not be open in the firewall of VPS2).
 
 
 ## Step 2. Configure VPS 1
