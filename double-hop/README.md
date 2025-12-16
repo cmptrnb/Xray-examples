@@ -8,52 +8,20 @@ In this scenario:
 
 ## Step 1. Configure VPS 2
 
-Start by downloading the WireGuard install script from https://github.com/angristan/wireguard-install:
+Start by downloading and running the WireGuard install script from https://github.com/Nyr/wireguard-install:
 
 ```
-curl -L https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh -O
+wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.sh
 ```
 
-Make the script executable:
+Specify the WireGuard server listening port as `51820`.
+
+You will be prompted to specify a client name. We will use `mypc` as our example.
+
+Check the status of WireGuard with: 
 
 ```
-chmod +x wireguard-install.sh
-```
-
-Execute the script:
-
-```
-./wireguard-install.sh
-```
-
-Explicitly specify the listening port as `51820/udp`.
-
-Toward the end of the script's run, you will be prompted to specify a client name. We will use `mypc` as our example.
-
-We do not need to open the firewall for WireGuard, since it will be behind Xray. Therefore edit the generated server configuration file:
-
-```
-vi /etc/wireguard/wg0.conf
-```
-
-Delete the firewall opening lines:
-
-```
-PostUp = iptables -I INPUT -p udp --dport 51820 -j ACCEPT
-```
-
-And:
-
-```
-PostDown = iptables -D INPUT -p udp --dport 51820 -j ACCEPT
-```
-
-Write the file to disk, and quit the editor.
-
-Manually delete the open port we do not need:
-
-```
-iptables -D INPUT -p udp --dport 51820 -j ACCEPT
+systemctl status wg-quick@wg0
 ```
 
 Install Xray using the script from https://github.com/XTLS/Xray-install:
@@ -96,9 +64,7 @@ Restart the Xray systemd service with this configuration file:
 systemctl restart xray
 ```
 
-Open port `tcp/443` in the firewall and/or security groups for VPS 2.
-
-You now have Xray listening on port `tcp/443`, and WireGuard listening on port `udp/51820` (which should not be open in the firewall of VPS2).
+Open port `tcp/443` in the VPS 2 firewall and/or security groups.
 
 
 ## Step 2. Configure VPS 1
@@ -148,7 +114,7 @@ sudo apt install -y wireguard
 Securely download the generated client configuration file from VPS2:
 
 ```
-scp root@VPS2.SERVER.IP.ADDRESS:/root/wg0-client-mypc.conf .
+scp root@VPS2.SERVER.IP.ADDRESS:/mypc.conf Downloads
 ```
 
 Edit the apparent destination to be your relay server (VPS 1) IP address, instead of your final server (VPS 2) IP address:
@@ -162,7 +128,7 @@ Write the file to disk, and quit the editor.
 Copy the WireGuard configuration file into place:
 
 ```
-cp wg0-client-mypc.conf /etc/wireguard/wg0.conf
+cp Downloads/mypc.conf /etc/wireguard/wg0.conf
 ```
 
 Connect your client to the relay server (VPS 1), which will in turn connect over Xray to the final server (VPS 2).
