@@ -1,0 +1,49 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "tag":"wireguard",
+            "port": 51820,
+            "protocol":"dokodemo-door",
+            "settings":{
+                "address":"0.0.0.0",
+                "port":51820,
+                "network":"udp"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "VPS2.SERVER.IP.ADDRESS", 
+                        "port": 443, 
+                        "users": [
+                            {
+                                "id": "5ac3b7f8-567e-4ccb-9092-ee69911d2e5c",
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "fingerprint": "chrome", 
+                    "serverName": "www.amazon.com", 
+                    "publicKey": "MlweZhZDkF_fp5-2bcEZmSgPyBTKiyOz97pIrqTvSw0", 
+                    "spiderX": "",
+                    "shortId": "01"
+                }
+            },
+            "tag": "proxy"
+        }
+    ]
+}
