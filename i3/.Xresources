@@ -1,4 +1,0 @@
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=18
-URxvt.background: #000000
-URxvt.foreground: #00ff00
-URxvt.perl-ext-common: default,-confirm-paste
