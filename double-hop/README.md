@@ -153,12 +153,11 @@ Connect your client to the relay server (VPS 1), which will in turn connect over
 sudo wg-quick up wg0
 ```
 
-This brings the tunnel up. Verify the Connection:
+Verify the Connection:
 
 ```
 sudo wg show
 ```
-
 
 ## Step 4. End-to-end test
 
