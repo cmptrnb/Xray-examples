@@ -120,7 +120,7 @@ To copy and paste from URxvt to Firefox:
 
 ### Multiple lines
 
-There are unresolved problemswhen pasting multiple lines into URxvt.
+There are unresolved problems when pasting multiple lines into URxvt.
 
 One suggestion is to create or modify an `~/.inputrc` file and include a line:
 
@@ -128,13 +128,13 @@ One suggestion is to create or modify an `~/.inputrc` file and include a line:
 set enable-bracketed-paste off
 ```
 
-To disable the `confirm-paste` extension, add `,-confirm-paste` to the `perl-ext-common` resource, which tells URxvt to load the defaults, minus this specific extension. Add the following line to `~/.Xresources`:
+Multi-line pasting generally produces a confirmation prompt. To disable the `confirm-paste` extension that causes this, add `,-confirm-paste` to the `perl-ext-common` resource, which tells URxvt to load the defaults, minus this specific extension. Add the following line to `~/.Xresources`:
 
 ```
 URxvt.perl-ext-common: default,-confirm-paste
 ```
 
-After editing the file, you must load the changes using the command:
+After editing the file, load the changes into the X database by issuing the command:
 
 ```
 xrdb ~/.Xresources
