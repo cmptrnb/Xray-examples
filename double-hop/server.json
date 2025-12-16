@@ -24,7 +24,7 @@
                         "www.amazon.com" 
                     ],
                     "privateKey": "EK8TpuV7XJ1DmRdKshL_rWrU5pdqbPOKLpIH8DB72mg",
-                    "shortIds": 
+                    "shortIds": [
                         "01"
                     ]
                 }
@@ -40,10 +40,12 @@
             }
         }
     ],
-    "outbounds": [
+    outbounds: [
         {
             "protocol": "freedom",
-            "tag": "direct"
+            "tag": "direct",
+            "redirect": "127.0.0.1:51820"
         }
     ]
 }
+
