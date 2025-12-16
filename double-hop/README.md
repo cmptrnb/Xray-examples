@@ -11,7 +11,11 @@ In this scenario:
 
 ## Step 1. Configure VPS 2
 
-SSH into VPS 2.
+SSH into VPS 2:
+
+```
+ssh root@VPS2.SERVER.IP.ADDRESS
+```
 
 Start by downloading and running the WireGuard install script from https://github.com/Nyr/wireguard-install:
 
@@ -80,7 +84,11 @@ exit
 
 ## Step 2. Configure VPS 1
 
-SSH into VPS 1.
+SSH into VPS 1:
+
+```
+ssh root@VPS1.SERVER.IP.ADDRESS
+```
 
 Install Xray from https://github.com/XTLS/Xray-install:
 
