@@ -132,7 +132,9 @@ exit
 
 ## Step 3. Configure user PC
 
-Install WireGuard on the client as per https://www.wireguard.com/install. For example, for a Debian Linux client:
+Install WireGuard on the client as per https://www.wireguard.com/install. 
+
+For example, for a Debian/Ubuntu Linux client, open a terminal emulator window. Install WireGuard for Debian/Ubuntu:
 
 ```
 sudo apt install -y wireguard
@@ -176,7 +178,15 @@ Verify the Connection:
 sudo wg show
 ```
 
+Close your terminal emulator window:
+
+```
+exit
+```
+
 ## Step 4. End-to-end test
+
+Open a browser.
 
 Test the connection all the way from the client out to the World Wide Web by visiting a site such as https://iplocation.io.
 
