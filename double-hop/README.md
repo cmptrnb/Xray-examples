@@ -1,8 +1,5 @@
 # How to build a double-hop VPN with WireGuard and Xray VLESS Reality
 
-
-**Under development and untested**
-
 In this scenario:
 
 * The user connects to VPS 1 with WireGuard
@@ -189,4 +186,6 @@ exit
 Open a browser.
 
 Test the connection all the way from the client out to the World Wide Web by visiting a site such as https://iplocation.io.
+
+You should see the IP address and location of VPS 2.
 
