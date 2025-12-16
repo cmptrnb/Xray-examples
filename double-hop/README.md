@@ -82,7 +82,7 @@ SSH into VPS 1.
 Install Xray from https://github.com/XTLS/Xray-install:
 
 ```
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta -u root
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 ```
 
 For configuring Xray, you can use the `relay.json` from this repository as your starting point:
