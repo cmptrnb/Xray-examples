@@ -141,10 +141,16 @@ sudo apt install -y wireguard
 Securely download the generated client configuration file from VPS2:
 
 ```
-scp root@VPS2.SERVER.IP.ADDRESS:/mypc.conf Downloads
+scp root@VPS2.SERVER.IP.ADDRESS:/root/mypc.conf Downloads
 ```
 
-Edit the apparent destination to be your relay server (VPS 1) IP address, instead of your final server (VPS 2) IP address:
+Edit the downloaded client configuration file:
+
+```
+vi Downloads/mypc.conf
+```
+
+Change the destination server IP address to be your relay server (VPS 1) IP address, instead of your final server (VPS 2) IP address:
 
 ```
 Endpoint = VPS1.SERVER.IP.ADDRESS:51820
