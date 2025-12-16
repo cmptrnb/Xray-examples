@@ -120,7 +120,7 @@ Restart the Xray systemd service with this configuration file:
 systemctl restart xray
 ```
 
-This server is now listening for public input on `udp/51820`, and whatever it receives (`dokodemo-door` inbound) will be output to the server VPS 2.
+This server is now listening for public input on `udp/51820`, and whatever it receives (`dokodemo-door` inbound) will be transferred over VLESS to the server VPS 2.
 
 Open port `udp/51820` in this VPS's firewall and/or security groups.
 
