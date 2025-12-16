@@ -50,13 +50,11 @@ PostDown = iptables -D INPUT -p udp --dport 51820 -j ACCEPT
 
 Write the file to disk, and quit the editor.
 
-The easiest way to implement these changes right now is to reboot:
+Manually delete the open port we do not need:
 
 ```
-reboot
+iptables -D INPUT -p udp --dport 51820 -j ACCEPT
 ```
-
-After a few moments, SSH back into VPS2.
 
 Install Xray using the script from https://github.com/XTLS/Xray-install:
 
