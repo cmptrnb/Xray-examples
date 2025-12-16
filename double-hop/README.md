@@ -161,7 +161,7 @@ Write the file to disk, and quit the editor.
 Copy the WireGuard configuration file into place:
 
 ```
-cp Downloads/mypc.conf /etc/wireguard/wg0.conf
+sudo cp Downloads/mypc.conf /etc/wireguard/wg0.conf
 ```
 
 Connect your client to the relay server (VPS 1), which will in turn connect over Xray to the final server (VPS 2).
