@@ -8,6 +8,8 @@ In this scenario:
 
 ## Step 1. Configure VPS 2
 
+SSH into VPS 2.
+
 Start by downloading and running the WireGuard install script from https://github.com/Nyr/wireguard-install:
 
 ```
@@ -66,8 +68,16 @@ systemctl restart xray
 
 Open port `tcp/443` in the VPS 2 firewall and/or security groups.
 
+Exit your SSH session with VPS 2:
+
+```
+exit
+```
+
 
 ## Step 2. Configure VPS 1
+
+SSH into VPS 1.
 
 Install Xray from https://github.com/XTLS/Xray-install:
 
@@ -101,7 +111,13 @@ systemctl restart xray
 
 Open port `udp/51820` in this VPS's firewall and/or security groups.
 
-This server is now listening for public input on `udp/51820`, and whatever it gets (`dokodemo-door`) will be sent to the server VPS 2.
+This server is now listening for public input on `udp/51820`, and whatever it receives (`dokodemo-door` inbound) will be output to the server VPS 2.
+
+Exit your SSH session with VPS 1:
+
+```
+exit
+```
 
 ## Step 3. Configure user PC
 
