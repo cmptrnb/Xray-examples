@@ -1,0 +1,211 @@
+# VLESS XHTTP Reality "steal oneself"
+
+In this configuration, the Xray client sends XHTTP requests to your server with your own domain name ("steal oneself"). These requests specify a secret path.
+
+The Xray server listens for requests on port 443. 
+
+If the secret path is incorrect, Xray sends the requests to Nginx listening on localhost port 8001. Nginx acts as a reverse proxy to serve up your camouflage content.
+
+You will need your own domain name for this scenario. The hostname of your VPS is given in the examples as your.server.hostname.
+
+The configuration files in this folder were forked from https://github.com/chika0801/Xray-examples.
+
+
+## Step 1. Open server firewall
+
+Open ports tcp/80 and tcp/443 in your server firewall and/or VPS security groups. 
+
+Since the ACME certificate script needs to use port tcp/80, that port needs to be open, but nothing else must use it. 
+
+Port tcp/8001, where the Nginx reverse proxy will listen on localhost, need not be open for public input.
+
+
+## Step 2. Get SSL certificate and key
+
+SSH into your server as root, replacing `your.server.hostname` in the command below with your actual server hostname:
+
+```
+ssh root@your.server.hostname
+```
+
+Get your server packages up to date:
+
+```
+apt update && apt upgrade -y
+```
+
+Install the prerequisite for the ACME certificate script:
+
+```
+apt install -y socat
+```
+
+Install the ACME certificate script:
+
+```
+curl https://get.acme.sh | sh
+```
+
+Set a shorter alias for the ACME shell script:
+
+```
+alias acme.sh=~/.acme.sh/acme.sh
+```
+
+Set up ACME shell script auto-update:
+
+```
+acme.sh --upgrade --auto-upgrade
+```
+
+Change the default Certificate Authority to Let's Encrypt:
+
+```
+acme.sh --set-default-ca --server letsencrypt
+```
+
+Apply for an Elliptic Curve Cryptography certificate for your.server.hostname in standalone mode. ec-256 means prime256v1 also known as ECDSA P-256. Replace `your.server.hostname` in the example command with your actual server hostname.
+
+```
+acme.sh --issue -d your.server.hostname --standalone --keylength ec-256
+```
+
+Install the your.server.hostname certificate to the /etc/ssl/private directory. Replace `your.server.hostname` in the example command with your actual server hostname.
+
+```
+acme.sh --install-cert -d your.server.hostname --ecc --fullchain-file /etc/ssl/private/fullchain.cer --key-file /etc/ssl/private/private.key
+```
+
+Set the owner and group to support non-root applications:
+
+```
+chown -R nobody:nogroup /etc/ssl/private
+```
+
+Set everything up for certificate renewal. Replace `your.server.hostname` in the example command with your actual server hostname.
+
+```
+acme.sh --renew -d your.server.hostname --force --ecc
+```
+
+
+## 3. Configure Nginx as a reverse proxy
+
+Install Nginx:
+
+```
+apt install -y nginx
+```
+
+Download the model Nginx configuration for this scenario:
+
+```
+curl -L https://github.com/cmptrnb/Xray-examples/blob/main/VLESS-XHTTP-Reality-steal-oneself/steal_oneself/nginx.conf -o /etc/nginx/nginx.conf
+```
+
+Edit your Nginx configuration:
+
+```
+vi /etc/nginx/nginx.conf
+```
+
+Change your.server.hostname to be your actual hostname.
+
+Change the line that sets the $website variable to refer to your actual camouflage content.
+
+Write the file to disk, and quit the editor.
+
+Check your Nginx configuration file:
+
+```
+nginx -t
+```
+
+Restart Xray with your new configuration:
+
+```
+systemctl restart Xray
+```
+
+
+## 4. Install and configure Xray
+
+Install Xray:
+
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+
+Download the model server configuration:
+
+```
+curl -L https://github.com/cmptrnb/Xray-examples/blob/main/VLESS-XHTTP-Reality-steal-oneself/steal_oneself/server.json -o /usr/local/etc/xray/config.json
+```
+
+You can generate your own pseudo-random, 8-character secret path with the command:
+
+```
+< /dev/urandom tr -dc a-z0-9 | head -c${1:-8};echo;
+```
+
+Generate your own UUID:
+
+```
+    xray uuid
+```
+
+Generate your own public and private key:
+```
+    xray x25519
+```
+
+Edit your server configuration:
+
+```
+vi /usr/local/etc/xray/config.json
+```
+
+Change the id (UUID), the secret path, your.server.hostname, and the private key.
+
+Write the file to disk, and quit the editor.
+
+Restart Xray with your modified configuration file:
+
+```
+systemctl restart xray
+```
+
+
+## Step 5. Set up client
+
+There are many Xray clients. 
+
+See the [Xray-core README](https://github.com/XTLS/Xray-core) for lists of GUI and non-GUI clients. 
+
+We'll use Windows in this example.
+
+Download, configure, and run the Xray-core Windows client as follows:
+
+1. Download the Windows client for Xray-core from https://github.com/XTLS/Xray-core/releases. 
+2. Unzip the zip file Xray-windows-64.zip.
+3. Open a browser at https://github.com/cmptrnb/Xray-examples.
+4. Select VLESS-XHTTP-Reality-steal-oneself.
+5. Select client.json.
+6. Click the raw button.
+7. Open Windows notepad.
+8. Copy and paste the contents of client.json into Windows notepad.
+9. Modify the values as needed (your.server.hostname, UUID, secret path, and public key).
+10. Save the file with the name config.json in the same directory as xray.exe.
+11. Run the Windows client by opening a Windows Command Prompt and issuing this command:
+
+```
+xray.exe -c config.json
+```
+
+Set up system-wide proxying on Windows like this:
+
+1. Open the Windows Settings app. 
+2. Select Network & internet
+3. Select Proxy.
+4. Under Use a proxy server, select Set up.
+5. Turn on the proxy, address 127.0.0.1, port 10808.
+
+Now test your entire configuration by opening a browser and visiting a site such as https://www.whatismyip.com.
