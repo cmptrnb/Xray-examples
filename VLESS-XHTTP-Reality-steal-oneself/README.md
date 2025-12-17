@@ -13,11 +13,11 @@ The configuration files in this folder were forked from https://github.com/chika
 
 ## Step 1. Open server firewall
 
-Open ports tcp/80 and tcp/443 in your server firewall and/or VPS security groups. 
+Open ports `tcp/80` and `tcp/443` in your server firewall and/or VPS security groups. 
 
-Since the ACME certificate script needs to use port tcp/80, that port needs to be open, but nothing else must use it. 
+Since the ACME certificate script needs to use port `tcp/80`, that port needs to be open, but nothing else must use it. 
 
-Port tcp/8001, where the Nginx reverse proxy will listen on localhost, need not be open for public input.
+Port `tcp/8001`, where the Nginx reverse proxy will listen on localhost, need not be open for public input.
 
 
 ## Step 2. Get SSL certificate and key
@@ -100,7 +100,7 @@ apt install -y nginx
 Download the model Nginx configuration for this scenario:
 
 ```
-curl -L https://github.com/cmptrnb/Xray-examples/blob/main/VLESS-XHTTP-Reality-steal-oneself/steal_oneself/nginx.conf -o /etc/nginx/nginx.conf
+curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-Reality-steal-oneself/nginx.conf -o /etc/nginx/nginx.conf
 ```
 
 Edit your Nginx configuration:
@@ -109,9 +109,9 @@ Edit your Nginx configuration:
 vi /etc/nginx/nginx.conf
 ```
 
-Change your.server.hostname to be your actual hostname.
+Change `your.server.hostname` to be your actual hostname.
 
-Change the line that sets the $website variable to refer to your actual camouflage content.
+Change the line that sets the `$website` variable to refer to your preferred camouflage content.
 
 Write the file to disk, and quit the editor.
 
@@ -137,7 +137,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 Download the model server configuration:
 
 ```
-curl -L https://github.com/cmptrnb/Xray-examples/blob/main/VLESS-XHTTP-Reality-steal-oneself/steal_oneself/server.json -o /usr/local/etc/xray/config.json
+curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-Reality-steal-oneself/server.json -o /usr/local/etc/xray/config.json
 ```
 
 You can generate your own pseudo-random, 8-character secret path with the command:
@@ -188,11 +188,11 @@ Download, configure, and run the Xray-core Windows client as follows:
 2. Unzip the zip file Xray-windows-64.zip.
 3. Open a browser at https://github.com/cmptrnb/Xray-examples.
 4. Select VLESS-XHTTP-Reality-steal-oneself.
-5. Select client.json.
-6. Click the raw button.
+5. Select `client.json`.
+6. Click the **Raw** button.
 7. Open Windows notepad.
-8. Copy and paste the contents of client.json into Windows notepad.
-9. Modify the values as needed (your.server.hostname, UUID, secret path, and public key).
+8. Copy and paste the contents of `client.json` into Windows notepad.
+9. Modify the values as needed (`your.server.hostname`, UUID, secret path, and public key).
 10. Save the file with the name config.json in the same directory as xray.exe.
 11. Run the Windows client by opening a Windows Command Prompt and issuing this command:
 
