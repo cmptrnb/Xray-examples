@@ -6,7 +6,7 @@ The Xray server listens for requests on port 443.
 
 If the secret path is incorrect, Xray sends the requests to Nginx listening on localhost port 8001. Nginx acts as a reverse proxy to serve up your camouflage content.
 
-You will need your own domain name for this scenario. The hostname of your VPS is given in the examples as your.server.hostname.
+You will need your own domain name for this scenario. The hostname of your VPS is given in the examples as `your.server.hostname`.
 
 The configuration files in this folder were forked from https://github.com/chika0801/Xray-examples.
 
