@@ -1,0 +1,72 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "@xhttp",
+            "protocol": "vless",
+            "settings": {
+                "decryption": "none",
+                "clients": [
+                    {
+                        "id": "4f46facf-9fd6-410d-8982-a27eedfcea88"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "xhttpSettings": {
+                    "path": "/82x8x7w9"
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        },
+        {
+            "listen": "0.0.0.0",
+            "port": 443,
+            "protocol": "vless",
+            "settings": {
+                "decryption": "none",
+                "fallbacks": [
+                    {
+                        "dest": "@xhttp"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "target": "8001",
+                    "xver": 1, 
+                    "serverNames": [
+                        "your.server.hostname"
+
+                    ],
+                    "privateKey": "",
+                    "shortIds": [
+                        ""
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
