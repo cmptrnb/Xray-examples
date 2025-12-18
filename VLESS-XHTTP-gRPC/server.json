@@ -1,0 +1,61 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 8443,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "6cd3b55f-afb6-412a-8f1c-d0260c409aa0",
+                        "flow": ""
+                    }
+                ],
+                "decryption": "none",
+                "encryption": "none"
+            },
+            "streamSettings": {
+                "network": "xhttp",
+                "security": "none",
+                "xhttpSettings": {
+                    "host": "your.server.hostname",
+                    "path": "/z1gll8p35ybm75r6",
+                    "mode": "stream-up",
+                    "extra": {
+                        "headers": {
+                            "Content-Type": "application/grpc",
+                            "TE": "trailers",
+                            "User-Agent": "grpc-go/1.60.1",
+                            "grpc-accept-encoding": "identity,deflate,gzip",
+                            "grpc-encoding": "identity",
+                            "grpc-timeout": "1000m"
+                        },
+                        "xPaddingBytes": "10-100",
+                        "noSSEHeader": true
+                    }
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}
