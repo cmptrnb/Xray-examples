@@ -34,7 +34,7 @@
                         "port": 443,
                         "users": [
                             {
-                                "id": "4f46facf-9fd6-410d-8982-a27eedfcea88", 
+                                "id": "a4b77f56-1fe6-485e-9b48-48bb198ce784", 
                                 "encryption": "none"
                             }
                         ]
@@ -44,13 +44,13 @@
             "streamSettings": {
                 "network": "xhttp",
                 "xhttpSettings": {
-                    "path": "/82x8x7w9"
+                    "path": "/c6gim9rw"
                  },
                 "security": "reality",
                 "realitySettings": {
                     "fingerprint": "chrome",
                     "serverName": "your.server.hostname",
-                    "publicKey": "",
+                    "publicKey": "VqCnBCOjZ2xvj0fquZpCQEyzpZtMhr4-JvkNK23jd3E",
                     "shortId": ""
                 }
             },
