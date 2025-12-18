@@ -238,4 +238,4 @@ Set up system-wide proxying on Windows like this:
 4. Under **Manual proxy set up**, on the line marked **Use a proxy server**, select **Set up**.
 5. Turn on the proxy, set the Proxy IP address to `127.0.0.1`, and set the Port to `10808`.
 
-Now test your entire configuration. Open a browser and visiting a site such as https://www.whatismyip.com.
+Now test your entire configuration. Open a browser and visiting a site such as https://ipchicken.com.
