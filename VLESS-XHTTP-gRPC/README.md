@@ -185,11 +185,9 @@ exit
 
 ## Step 5. Set up client
 
-There are many Xray clients.
+There are many Xray clients. If you are not familiar with them, please refer to the list of clients in the [Xray-core README](https://github.com/XTLS/Xray-core).
 
-If you are not familiar with them, please refer to the list of clients in the [Xray-core README](https://github.com/XTLS/Xray-core).
-
-We will use Linux in this example.
+We will use Linux in this example, but an equivalent process will apply on other platforms.
 
 Download, configure, and run the Xray-core client as follows:
 
