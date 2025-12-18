@@ -121,10 +121,16 @@ Check your Nginx configuration file:
 nginx -t
 ```
 
-Restart Xray with your new configuration:
+Restart Nginx with your new configuration:
 
 ```
-systemctl restart Xray
+systemctl restart nginx
+```
+
+Check the status of the Nginx service:
+
+```
+systemctl status nginx
 ```
 
 
@@ -132,7 +138,9 @@ systemctl restart Xray
 
 Install Xray:
 
+```
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+```
 
 Download the model server configuration:
 
@@ -140,21 +148,28 @@ Download the model server configuration:
 curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-Reality-steal-oneself/server.json -o /usr/local/etc/xray/config.json
 ```
 
-You can generate your own pseudo-random, 8-character secret path with the command:
+The secret path is given in the examples as `c6gim9rw`. You can generate your own pseudo-random, 8-character secret path with the command:
 
 ```
 < /dev/urandom tr -dc a-z0-9 | head -c${1:-8};echo;
 ```
 
-Generate your own UUID:
+The UUID is given in the examples as `a4b77f56-1fe6-485e-9b48-48bb198ce784`. Generate your own UUID:
 
 ```
-    xray uuid
+xray uuid
+```
+
+The private and public key are given in the examples as:
+
+```
+PrivateKey: cCxc5EJIDFlqlp5uFXLIo_OMTXzwmMlztmitB2CIw3s
+Password: VqCnBCOjZ2xvj0fquZpCQEyzpZtMhr4-JvkNK23jd3E
 ```
 
 Generate your own public and private key:
 ```
-    xray x25519
+xray x25519
 ```
 
 Edit your server configuration:
