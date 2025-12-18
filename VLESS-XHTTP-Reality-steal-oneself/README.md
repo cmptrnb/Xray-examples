@@ -64,19 +64,19 @@ Change the default Certificate Authority to Let's Encrypt:
 acme.sh --set-default-ca --server letsencrypt
 ```
 
-Apply for an Elliptic Curve Cryptography certificate for your.server.hostname in standalone mode. ec-256 means prime256v1 also known as ECDSA P-256. Replace `your.server.hostname` in the example command with your actual server hostname.
+Apply for an Elliptic Curve Cryptography certificate for `your.server.hostname` in standalone mode. ec-256 means prime256v1 also known as ECDSA P-256. Replace `your.server.hostname` in the example command with your actual server hostname.
 
 ```
 acme.sh --issue -d your.server.hostname --standalone --keylength ec-256
 ```
 
-Install the your.server.hostname certificate to the /etc/ssl/private directory. Replace `your.server.hostname` in the example command with your actual server hostname.
+Install the `your.server.hostname` certificate to the /etc/ssl/private directory. Replace `your.server.hostname` in the example command with your actual server hostname.
 
 ```
 acme.sh --install-cert -d your.server.hostname --ecc --fullchain-file /etc/ssl/private/fullchain.cer --key-file /etc/ssl/private/private.key
 ```
 
-Set the owner and group to support non-root applications:
+Set the owner and group to allow access to the private key by non-root applications:
 
 ```
 chown -R nobody:nogroup /etc/ssl/private
@@ -238,4 +238,4 @@ Set up system-wide proxying on Windows like this:
 4. Under **Manual proxy set up**, on the line marked **Use a proxy server**, select **Set up**.
 5. Turn on the proxy, set the Proxy IP address to `127.0.0.1`, and set the Port to `10808`.
 
-Now test your entire configuration. Open a browser and visiting a site such as https://www.whatismyip.com.
+Now test your entire configuration. Open a browser and visiting a site such as https://ipchicken.com.
