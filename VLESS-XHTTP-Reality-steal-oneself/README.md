@@ -89,7 +89,7 @@ acme.sh --renew -d your.server.hostname --force --ecc
 ```
 
 
-## 3. Configure Nginx as a reverse proxy
+## Step 3. Configure Nginx as a reverse proxy
 
 Install Nginx:
 
