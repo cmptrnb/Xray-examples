@@ -4,7 +4,7 @@ In this configuration, the Xray client sends XHTTP requests to your server with 
 
 The Xray server listens for requests on port `tcp/443`. 
 
-If the secret path is incorrect, Xray sends the requests to Nginx listening on localhost port 8001. Nginx acts as a reverse proxy to serve up your camouflage content.
+If the secret path is incorrect, Xray sends the requests to Nginx listening on localhost port `tcp/8001`. Nginx acts as a reverse proxy to serve up your camouflage content.
 
 You will need your own domain name for this scenario. The hostname of your VPS is given in the examples as `your.server.hostname`.
 
