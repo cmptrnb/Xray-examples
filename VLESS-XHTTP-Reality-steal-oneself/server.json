@@ -10,14 +10,14 @@
                 "decryption": "none",
                 "clients": [
                     {
-                        "id": "4f46facf-9fd6-410d-8982-a27eedfcea88"
+                        "id": "a4b77f56-1fe6-485e-9b48-48bb198ce784"
                     }
                 ]
             },
             "streamSettings": {
                 "network": "xhttp",
                 "xhttpSettings": {
-                    "path": "/82x8x7w9"
+                    "path": "/c6gim9rw"
                 }
             },
             "sniffing": {
@@ -51,7 +51,7 @@
                         "your.server.hostname"
 
                     ],
-                    "privateKey": "",
+                    "privateKey": "cCxc5EJIDFlqlp5uFXLIo_OMTXzwmMlztmitB2CIw3s",
                     "shortIds": [
                         ""
                     ]
