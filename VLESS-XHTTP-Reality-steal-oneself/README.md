@@ -220,7 +220,7 @@ Download, configure, and run the Xray-core Windows client as follows:
 7. Copy the contents to your Windows clipboard.
 8. Open Windows Notepad.
 9. Paste the contents of `client.json` from your clipboard into Windows Notepad.
-10. Modify the values as needed (`your.server.hostname`, UUID, secret path, and public key).
+10. Modify the values as needed (UUID, secret path, public key, and `your.server.hostname` in 2 places).
 11. Save the file with the name `config.json` in the same directory as `xray.exe`.
 12. Open a Windows Command Prompt and run the Windows client by issuing the command:
 
