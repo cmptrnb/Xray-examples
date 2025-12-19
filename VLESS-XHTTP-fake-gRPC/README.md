@@ -96,7 +96,7 @@ apt install -y nginx
 Download the model Nginx configuration for this scenario:
 
 ```
-curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-gRPC/nginx.conf -o /etc/nginx/nginx.conf
+curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-fake-gRPC/nginx.conf -o /etc/nginx/nginx.conf
 ```
 
 Edit your Nginx configuration:
@@ -141,7 +141,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
 Download the model server configuration:
 
 ```
-curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-gRPC/server.json -o /usr/local/etc/xray/config.json
+curl -L https://raw.githubusercontent.com/cmptrnb/Xray-examples/refs/heads/main/VLESS-XHTTP-fake-gRPC/server.json -o /usr/local/etc/xray/config.json
 ```
 
 The secret path is given in the examples as `z1gll8p35ybm75r6`. In the real world, you should generate your own pseudo-random, 16-character secret path by issuing the command:
@@ -196,7 +196,7 @@ Download, configure, and run the Xray-core client as follows:
 1. Download the most recent Linux 64-bit executable for Xray-core from https://github.com/XTLS/Xray-core/releases. 
 2. Unzip the downloaded file Xray-linux-64.zip.
 3. Open a browser at https://github.com/cmptrnb/Xray-examples.
-4. Select the folder `VLESS-XHTTP-gRPC`.
+4. Select the folder `VLESS-XHTTP-fake-gRPC`.
 5. Select the file `client.json`.
 6. Click the **Raw** button.
 7. Copy the contents to your PC clipboard.
